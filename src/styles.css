@@ -40,31 +40,31 @@
 
 :root {
   --radius: 0.5rem;
-  --background: #f7f4ee;
+  --background: #edf2ed;
   --foreground: #17191f;
-  --surface: #ffffff;
-  --paper: #fdfbf7;
-  --ink: #17191f;
-  --card: #ffffff;
+  --surface: #f9fbf8;
+  --paper: #f3f7f2;
+  --ink: #121b19;
+  --card: #f9fbf8;
   --card-foreground: #17191f;
-  --popover: #ffffff;
+  --popover: #f9fbf8;
   --popover-foreground: #17191f;
-  --primary: #0e5a52;
+  --primary: #075f57;
   --primary-foreground: #ffffff;
-  --secondary: #ece7dd;
+  --secondary: #dfe8df;
   --secondary-foreground: #17191f;
-  --muted: #ebe5da;
-  --muted-foreground: #606976;
-  --accent: #2457d6;
+  --muted: #e2ebe3;
+  --muted-foreground: #62706b;
+  --accent: #315f86;
   --accent-foreground: #ffffff;
-  --teal: #0e5a52;
-  --cobalt: #2457d6;
-  --clay: #a65332;
+  --teal: #075f57;
+  --cobalt: #315f86;
+  --clay: #9b6544;
   --destructive: oklch(0.62 0.22 27);
   --destructive-foreground: #ffffff;
-  --border: #d8d2c6;
-  --input: #c9c1b3;
-  --ring: rgba(14, 90, 82, 0.32);
+  --border: #c8d4cc;
+  --input: #b9c8bf;
+  --ring: rgba(7, 95, 87, 0.32);
 }
 
 @layer base {
@@ -76,6 +76,10 @@
   }
   body {
     background-color: var(--color-background);
+    background-image:
+      linear-gradient(rgba(18, 27, 25, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(18, 27, 25, 0.02) 1px, transparent 1px);
+    background-size: 44px 44px;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;

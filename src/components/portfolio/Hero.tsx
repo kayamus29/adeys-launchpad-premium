@@ -13,7 +13,7 @@ const credentials = [
 ];
 
 export function Hero() {
-  const [portraitAvailable, setPortraitAvailable] = useState(true);
+  const [portraitLoaded, setPortraitLoaded] = useState(false);
 
   return (
     <section id="home" className="relative pt-20 md:pt-[5.5rem] pb-10 md:pb-10 overflow-hidden">
@@ -78,18 +78,22 @@ export function Hero() {
                     </p>
                   </div>
                   <div className="relative size-16 shrink-0 overflow-hidden rounded-lg bg-white text-ink">
-                    {portraitAvailable ? (
-                      <img
-                        src={portraitAsset.url}
-                        alt="Adeyemi Anibi professional portrait"
-                        className="absolute inset-0 h-full w-full object-cover"
-                        onError={() => setPortraitAvailable(false)}
-                      />
-                    ) : (
-                      <div className="grid h-full w-full place-items-center font-display text-lg font-extrabold">
-                        AA
-                      </div>
-                    )}
+                    <div
+                      className={`grid h-full w-full place-items-center font-display text-lg font-extrabold ${
+                        portraitLoaded ? "opacity-0" : "opacity-100"
+                      }`}
+                    >
+                      AA
+                    </div>
+                    <img
+                      src={portraitAsset.url}
+                      alt="Adeyemi Anibi professional portrait"
+                      className={`absolute inset-0 h-full w-full object-cover transition-opacity ${
+                        portraitLoaded ? "opacity-100" : "opacity-0"
+                      }`}
+                      onLoad={() => setPortraitLoaded(true)}
+                      onError={() => setPortraitLoaded(false)}
+                    />
                   </div>
                 </div>
                 <div className="mt-6 grid grid-cols-3 gap-3">
