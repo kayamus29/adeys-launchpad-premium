@@ -52,7 +52,7 @@ export function Nav() {
             href="#home"
             className="flex items-center gap-2 pr-2 md:pr-3 md:border-r md:border-border"
           >
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground font-display font-extrabold text-[11px]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground ring-1 ring-accent/35 font-display font-extrabold text-[11px]">
               AA
             </span>
             <span className="hidden md:inline font-display font-semibold text-sm">
@@ -69,7 +69,7 @@ export function Nav() {
                   href={l.href}
                   className={`px-3 py-1.5 rounded-full transition-colors ${
                     isActive
-                      ? "bg-secondary text-primary"
+                      ? "bg-accent/15 text-primary"
                       : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
                   }`}
                 >
@@ -81,7 +81,7 @@ export function Nav() {
 
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-primary-foreground text-[11px] font-bold uppercase tracking-widest rounded-full hover:bg-primary/90 transition-all"
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-primary-foreground text-[11px] font-bold uppercase tracking-widest rounded-full ring-1 ring-accent/25 hover:bg-primary/90 transition-all"
           >
             Get in touch
           </a>
@@ -125,7 +125,7 @@ export function Nav() {
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="flex-1 text-center px-4 py-3 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-widest rounded-full"
+                className="flex-1 text-center px-4 py-3 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-widest rounded-full ring-1 ring-accent/25"
               >
                 Get in touch
               </a>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Reveal } from "./Reveal";
 import { ArrowRight, Download, ShieldCheck, BriefcaseBusiness, ClipboardCheck } from "lucide-react";
-import portraitAsset from "../../assets/portrait.png.asset.json";
+import portraitUrl from "../../assets/portrait.png";
 
 const credentials = [
   "SIA Door Supervision",
@@ -13,14 +13,14 @@ const credentials = [
 ];
 
 export function Hero() {
-  const [portraitLoaded, setPortraitLoaded] = useState(false);
+  const [portraitAvailable, setPortraitAvailable] = useState(true);
 
   return (
     <section id="home" className="relative pt-20 md:pt-[5.5rem] pb-10 md:pb-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
         <div className="relative z-10">
           <Reveal>
-            <span className="inline-flex items-center gap-2 px-3 py-1 border border-border bg-surface text-primary text-[10px] font-bold uppercase tracking-[0.18em] mb-6 rounded-full">
+            <span className="inline-flex items-center gap-2 px-3 py-1 border border-accent/35 bg-surface text-primary text-[10px] font-bold uppercase tracking-[0.18em] mb-6 rounded-full">
               <ShieldCheck size={13} />
               London-based operations professional
             </span>
@@ -46,7 +46,7 @@ export function Hero() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="#experience"
-                className="inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 bg-primary text-primary-foreground font-bold text-sm rounded-md hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all"
+                className="inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 bg-primary text-primary-foreground font-bold text-sm rounded-md hover:bg-primary/90 shadow-lg shadow-primary/20 ring-1 ring-accent/20 transition-all"
               >
                 Review Experience <ArrowRight size={16} />
               </a>
@@ -67,7 +67,7 @@ export function Hero() {
               <div className="bg-ink text-white p-6 md:p-7">
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-white/55 font-bold">
+                    <p className="text-[10px] uppercase tracking-[0.18em] text-accent font-bold">
                       Professional dossier
                     </p>
                     <h2 className="mt-3 text-2xl md:text-3xl font-display font-extrabold">
@@ -78,22 +78,18 @@ export function Hero() {
                     </p>
                   </div>
                   <div className="relative size-16 shrink-0 overflow-hidden rounded-lg bg-white text-ink">
-                    <div
-                      className={`grid h-full w-full place-items-center font-display text-lg font-extrabold ${
-                        portraitLoaded ? "opacity-0" : "opacity-100"
-                      }`}
-                    >
-                      AA
-                    </div>
-                    <img
-                      src={portraitAsset.url}
-                      alt="Adeyemi Anibi professional portrait"
-                      className={`absolute inset-0 h-full w-full object-cover transition-opacity ${
-                        portraitLoaded ? "opacity-100" : "opacity-0"
-                      }`}
-                      onLoad={() => setPortraitLoaded(true)}
-                      onError={() => setPortraitLoaded(false)}
-                    />
+                    {portraitAvailable ? (
+                      <img
+                        src={portraitUrl}
+                        alt="Adeyemi Anibi professional portrait"
+                        className="absolute inset-0 h-full w-full object-cover"
+                        onError={() => setPortraitAvailable(false)}
+                      />
+                    ) : (
+                      <div className="grid h-full w-full place-items-center font-display text-lg font-extrabold">
+                        AA
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="mt-6 grid grid-cols-3 gap-3">
@@ -102,8 +98,8 @@ export function Hero() {
                     ["6", "led"],
                     ["100%", "audit"],
                   ].map(([value, label]) => (
-                    <div key={label} className="border border-white/15 rounded-md p-3">
-                      <p className="text-xl font-display font-extrabold">{value}</p>
+                    <div key={label} className="border border-accent/25 rounded-md p-3">
+                      <p className="text-xl font-display font-extrabold text-accent">{value}</p>
                       <p className="text-[10px] uppercase tracking-widest text-white/50">{label}</p>
                     </div>
                   ))}

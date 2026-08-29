@@ -73,7 +73,7 @@ export function Stats() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <span className="text-white/60 text-xs font-bold uppercase tracking-widest">
+            <span className="text-accent text-xs font-bold uppercase tracking-widest">
               Career Impact
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold mt-3">
@@ -88,7 +88,7 @@ export function Stats() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
           {stats.map((s) => (
             <div key={s.label} className="space-y-1.5">
-              <div className="text-3xl md:text-4xl font-display font-extrabold text-white">
+              <div className="text-3xl md:text-4xl font-display font-extrabold text-accent">
                 <CountUp target={s.value} suffix={s.suffix} decimals={s.decimals} />
               </div>
               <p className="text-[10px] uppercase tracking-wider text-white/60 leading-tight">
